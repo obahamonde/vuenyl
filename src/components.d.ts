@@ -11,7 +11,6 @@ declare module '@vue/runtime-core' {
     CognitoAuth: typeof import('./components/CognitoAuth.vue')['default']
     ContactForm: typeof import('./components/ContactForm.vue')['default']
     Counter: typeof import('./components/Counter.vue')['default']
-    Footer: typeof import('./components/Footer.vue')['default']
     GoogleAuth: typeof import('./components/GoogleAuth.vue')['default']
     Ico: typeof import('./components/Ico.vue')['default']
     Logo: typeof import('./components/Logo.vue')['default']
