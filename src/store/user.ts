@@ -15,10 +15,9 @@ export const useUserStore = defineStore("user", () => {
   }
 
   return {
-    user,
     setUser,
-    getUser
-     
+    getUser,
+    user   
   };
 });
 

@@ -25,5 +25,7 @@ const user = ref(useUserStore().user);
 <template>
   <div col center>
     <RouterView /> 
+      <ChatBox/>
   </div>
+<Cart />
 </template>

@@ -2,20 +2,14 @@
 title: About
 ---
 
-<div class="text-center">
+<div class="text-center mt-4" col center>
   <!-- You can use Vue components inside markdown -->
-  <div i-carbon-dicom-overlay class="text-4xl -mb-6 m-auto" />
-  <h3>About</h3>
+  <Ico icon="mdi-music" text-3xl mt-2 />
+  <h3>Acerca De</h3>
 </div>
 
-[Vitesse](https://github.com/antfu/vitesse) is an opinionated [Vite](https://github.com/vitejs/vite) starter template made by [@antfu](https://github.com/antfu) for mocking apps swiftly. With **file-based routing**, **components auto importing**, **markdown support**, I18n, PWA and uses **UnoCSS** for styling and icons.
+[Vuenyl](https://vuenyl.netlify.app) es una plataforma digital para el intercambio y venta de nuestros amados discos, está inspirada en la pasión por la música del padre de mi bien estimado Eduardo (conocido como Api). Por ello incentivamos la buena música y qué mejor que en su formato primigenio, aquí encontrarás de todo **Salsa**, **Rock**, **Baladas**, música en tu idioma **English** and **Castellano**.
 
-```js
-// syntax highlighting example
-function vitesse() {
-  const foo = 'bar'
-  console.log(foo)
-}
-```
-
-Check out the [GitHub repo](https://github.com/antfu/vitesse) for more details.
+<img src="https://blog.teufelaudio.com/wp-content/uploads/2018/08/hd-vinyl-titel-750x400.jpg"
+  rounded-lg shadow-md shadow-gray-500
+ />

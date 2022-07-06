@@ -40,11 +40,18 @@ export type Product = {
 }
 
 export type Cart = {
-    id: string
     user: User
     items: {
-        product: Product
+        vuenyl: Vuenyl
         quantity: number
     }[]
-    timestamp: number
+    total: number
 }
+
+export type Vuenyl = {
+    title: string
+    genre: string
+    price: number
+    image: string
+}
+
