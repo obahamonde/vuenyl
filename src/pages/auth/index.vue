@@ -1,3 +1,3 @@
 <template>
-  <GoogleAuth />
+  <Auth />
 </template>

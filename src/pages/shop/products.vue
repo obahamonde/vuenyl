@@ -1,7 +1,7 @@
 <template>
 <pre>
 
-{{}}
+{{products}}
 
 </pre>
 </template>
@@ -10,7 +10,11 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { useUserStore } from '~/store/user';
+import { Product } from '~/types';
+import { Ref } from 'vue';
 
-const user = ref(useUserStore().user);
+const user:Ref<User|null> = ref(useUserStore().user);
 
-</script>
+const products:Ref<Product[]> = ref([]);
+
+</script>   

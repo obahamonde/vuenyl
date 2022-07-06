@@ -5,13 +5,12 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Avatar: typeof import('./components/Avatar.vue')['default']
+    Auth: typeof import('./components/Auth.vue')['default']
     Chat: typeof import('./components/Chat.vue')['default']
     ChatBox: typeof import('./components/ChatBox.vue')['default']
     CognitoAuth: typeof import('./components/CognitoAuth.vue')['default']
     ContactForm: typeof import('./components/ContactForm.vue')['default']
     Counter: typeof import('./components/Counter.vue')['default']
-    GoogleAuth: typeof import('./components/GoogleAuth.vue')['default']
     Ico: typeof import('./components/Ico.vue')['default']
     Logo: typeof import('./components/Logo.vue')['default']
     Nav: typeof import('./components/Nav.vue')['default']

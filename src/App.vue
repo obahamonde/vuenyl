@@ -3,9 +3,9 @@
 import { useUserStore } from '~/store/user';
 
 useHead({
-  title: "FireBook",
+  title: "Vuenyl",
   meta: [
-    { name: "description", content: "🔥 Likefacebook but ON FIRE 🔥" },
+    { name: "description", content: "Vinyl Records E-Store" },
     {
       name: "theme-color",
       content: computed(() => (isDark.value ? "#00aba9" : "#ffffff")),
@@ -25,6 +25,5 @@ const user = ref(useUserStore().user);
 <template>
   <div col center>
     <RouterView /> 
-    <Avatar />
   </div>
 </template>
