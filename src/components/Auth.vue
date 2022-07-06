@@ -76,7 +76,7 @@ const updateAvatar = async (e:ChangeEvent) => {
   </div>
   <div v-else col center>
     <a
-      href="https://smartprocloud.auth.us-east-1.amazoncognito.com/login?client_id=6d4rt7sphoaihhcj5on3ghb727&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=http://localhost/auth"
+      href="https://smartprocloud.auth.us-east-1.amazoncognito.com/login?client_id=6d4rt7sphoaihhcj5on3ghb727&response_type=code&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://smartpro.solutions"
     >
       <Ico icon="mdi-account-circle" icon-btn x10 m-8 sh-md r-f p-1
     /></a>
