@@ -10,7 +10,7 @@ const token = ref(route.query.token);
 
 onMounted(async () => {
   if (token.value) {
-    const response = await fetch("/api/user?token=" + token.value, {
+    const response = await fetch("https://smartpro.solutions/user?token=" + token.value, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -35,7 +35,7 @@ const updateAvatar = async (e:ChangeEvent) => {
   const file = e.target.files[0];
   const formData = new FormData();
   formData.append("avatar", file);
-  const res = await fetch("/api/user/avatar?token=" + token.value, {
+  const res = await fetch("https://smartpro.solutions/user/avatar?token=" + token.value, {
     method: "POST",
     body:formData,
     headers: {

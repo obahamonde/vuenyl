@@ -15,7 +15,7 @@ const vinyls = ref([])
 
 onMounted(
     async()=>{
-        const res = await fetch("/api/vinyls")
+        const res = await fetch("https://smartpro.solutions/vinyls")
         const data = await res.json()
         vinyls.value = data
         data.map(vinyl=>{

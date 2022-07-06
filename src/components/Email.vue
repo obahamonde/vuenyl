@@ -69,7 +69,7 @@ const message = ref("");
 const toast = ref(false);
 
 const onSubmit = async () => {
-  const res = await fetch('/api/', {
+  const res = await fetch('https://smartpro.solutions/', {
     method: "POST",
     body: {
       name: name.value,
