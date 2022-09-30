@@ -1,0 +1,75 @@
+#!env/bin/python
+# -*- coding: utf-8 -*-
+import subprocess
+from os import makedirs, chdir
+from boto3 import Session
+from dotenv import load_dotenv
+load_dotenv()
+
+class LambdaUrl:
+    name:str
+    
+    def __init__(self, name:str):
+        self.name = name
+    
+    @property
+    def session(self):
+        return Session()
+    
+    @property
+    def lambda_(self):
+        return self.session.client('lambda')
+    
+    @property
+    def s3(self):
+        return self.session.client('s3')
+    
+    def create(self):
+        makedirs(f"./api/{self.name}")
+        with open(f"./api/{self.name}/app.py", "w") as f:
+            f.write("from fastapi import FastAPI\nfrom mangum import Mangum\napp = FastAPI()\n@app.get('/')\ndef root():\n\treturn {'message':'Hello from Serverless FastAPI'}\nhandler=Mangum(app)\n")
+        with open(f"./api/{self.name}/requirements.txt", "w") as f:
+            f.write("fastapi\nmangum")
+            
+    def build(self):
+        """Return the S3 bucket and key"""
+        makedirs(f"./api/{self.name}/dist")
+        subprocess.run(f"pip install -r ./api/{self.name}/requirements.txt -t ./api/{self.name}/dist".split())
+        chdir(f"./api/{self.name}/dist")
+        subprocess.run(f"cp ../app.py .".split())
+        subprocess.run(f"zip -r {self.name}.zip .".split())
+        s3 = self.session.client('s3')
+        s3.create_bucket(Bucket=self.name)
+        s3.upload_file(f"./{self.name}.zip", self.name, f"{self.name}.zip")
+        return {
+            "S3Bucket": self.name,
+            "S3Key": f"{self.name}.zip"
+        }
+                             
+    def deploy(self):
+        """Return the lambda url"""
+        response = self.lambda_.create_function(
+            FunctionName=self.name,
+            Runtime='python3.8',
+            Role="arn:aws:iam::992472819525:role/service-role/asdasada-role-2s2vp04b",
+            Handler=f"app.handler",
+            Code=self.build(),
+            Timeout=3,
+            MemorySize=128,
+            Publish=True,
+        )
+        self.lambda_.add_permission(
+            FunctionName=response['FunctionName'],
+            StatementId=self.name,
+            Action='lambda:InvokeFunctionUrl',
+            Principal='*',
+            FunctionUrlAuthType="NONE",
+        )
+        lambda_url = self.lambda_.create_function_url_config(
+            FunctionName=response['FunctionName'],
+            AuthType="NONE")
+        
+        url = lambda_url['FunctionUrl']
+        self.s3.delete_object(Bucket=self.name, Key=f"{self.name}.zip")
+        self.s3.delete_bucket(Bucket=self.name)
+        return url

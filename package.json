@@ -2,10 +2,7 @@
   "scripts": {
     "build": "vite-ssg build",
     "dev": "vite --port 3000",
-    "preview": "vite preview",
-    "preview-https": "serve dist",
-    "typecheck": "vue-tsc --noEmit",
-    "api": "uvicorn app:app --reload --host 0.0.0.0 --port 80"
+    "cli": "export PATH=$PWD:$PATH && vipere"
   },
   "dependencies": {
     "@netlify/functions": "^1.2.0",
