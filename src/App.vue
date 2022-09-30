@@ -1,7 +1,4 @@
 <script setup lang="ts">
-
-import { useUserStore } from '~/store/user';
-
 useHead({
   title: "Vuenyl",
   meta: [
@@ -18,14 +15,10 @@ useHead({
     },
   ],
 });
-
-const user = ref(useUserStore().user);
 </script>
 
 <template>
-  <div col center>
-    <RouterView /> 
-      <ChatBox/>
+  <div h-screen w-screen >
+    <RouterView bg-light dark:bg-info text-info dark:text-light /> 
   </div>
-<Cart />
 </template>

@@ -5,13 +5,9 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Auth: typeof import('./components/Auth.vue')['default']
-    Cart: typeof import('./components/Cart.vue')['default']
-    Chat: typeof import('./components/Chat.vue')['default']
-    ChatBox: typeof import('./components/ChatBox.vue')['default']
-    ContactForm: typeof import('./components/ContactForm.vue')['default']
-    Email: typeof import('./components/Email.vue')['default']
+    Dark: typeof import('./components/Dark.vue')['default']
     Ico: typeof import('./components/Ico.vue')['default']
+    IsDark: typeof import('./components/IsDark.vue')['default']
     Logo: typeof import('./components/Logo.vue')['default']
     Nav: typeof import('./components/Nav.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

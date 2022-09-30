@@ -21,6 +21,15 @@ export default defineConfig({
     },
   },
   
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+    }
+  }
+},
 
   plugins: [
     Vue({
@@ -41,13 +50,12 @@ export default defineConfig({
       imports: [
         "vue",
         "vue-router",
-        "vue-i18n",
         "vue/macros",
         "@vueuse/head",
         "@vueuse/core",
       ],
       dts: "src/auto-imports.d.ts",
-      dirs: ["src/composables", "src/store"],
+      dirs: ["src/hooks"],
       vueTemplate: true,
     }),
 

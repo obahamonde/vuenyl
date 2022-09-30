@@ -6,9 +6,11 @@ body,
   height: 100%;
   margin: 0;
   padding: 0;
+  background: #fff;
+  
 }
 
-html.dark {
+body,html.dark {
   background: #121212;
 }
 
